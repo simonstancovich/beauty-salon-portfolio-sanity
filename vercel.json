@@ -1,14 +1,19 @@
 {
-  "projects": {
-    "studio": {
-      "rootDirectory": "studio"
-    }
-  },
+  "version": 2,
   "builds": [
     {
-      "src": "studio/vercel-build",
+      "src": "studio/package.json",
       "use": "@vercel/static-build",
-      "config": {"distDir": "studio/dist"}
+      "config": {
+        "distDir": "studio/dist",
+        "buildCommand": "npm run vercel-build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/studio/dist/$1"
     }
   ]
 }
