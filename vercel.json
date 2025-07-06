@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "studio": {
+      "rootDirectory": "studio"
+    }
+  },
+  "builds": [
+    {
+      "src": "studio/vercel-build",
+      "use": "@vercel/static-build",
+      "config": {"distDir": "studio/dist"}
+    }
+  ]
+}
