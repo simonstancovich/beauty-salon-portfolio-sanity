@@ -107,18 +107,26 @@ export const homePageType = defineType({
               title: 'Treatments',
               type: 'array',
               of: [
-                {
-                  name: 'title',
-                  title: 'Title',
-                  type: 'string',
+                defineField({
+                  name: 'treatment',
+                  title: 'Treatment',
+                  type: 'object',
                   validation: (rule) => rule.required(),
-                },
-                {
-                  name: 'price',
-                  title: 'Price',
-                  type: 'string',
-                  validation: (rule) => rule.required(),
-                },
+                  fields: [
+                    {
+                      name: 'title',
+                      title: 'Title',
+                      type: 'string',
+                      validation: (rule) => rule.required(),
+                    },
+                    {
+                      name: 'price',
+                      title: 'Price',
+                      type: 'string',
+                      validation: (rule) => rule.required(),
+                    },
+                  ],
+                }),
               ],
             }),
 
