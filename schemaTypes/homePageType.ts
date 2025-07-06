@@ -24,18 +24,6 @@ export const homePageType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'treatmentsTitle',
-      title: 'Treatments Title',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'treatmentsSubtitle',
-      title: 'Treatments Subtitle',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: 'services',
       title: 'Services',
       type: 'array',
@@ -88,67 +76,61 @@ export const homePageType = defineType({
     defineField({
       name: 'treatmentsPreview',
       title: 'Treatments Preview',
-      type: 'array',
+      type: 'object',
       description: 'Items for the treatments preview section',
       validation: (rule) => rule.required(),
-      of: [
-        {
-          type: 'object',
-          title: 'Treatment Card',
-          fields: [
+      fields: [
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'subtitle',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'treatments',
+          title: 'Treatments',
+          type: 'array',
+          of: [
             defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
+              name: 'treatment',
+              title: 'Treatment',
+              type: 'object',
               validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'subtitle',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'treatments',
-              title: 'Treatments',
-              type: 'array',
-              of: [
-                defineField({
-                  name: 'treatment',
-                  title: 'Treatment',
-                  type: 'object',
+              fields: [
+                {
+                  name: 'title',
+                  title: 'Title',
+                  type: 'string',
                   validation: (rule) => rule.required(),
-                  fields: [
-                    {
-                      name: 'title',
-                      title: 'Title',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    },
-                    {
-                      name: 'price',
-                      title: 'Price',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    },
-                  ],
-                }),
+                },
+                {
+                  name: 'price',
+                  title: 'Price',
+                  type: 'string',
+                  validation: (rule) => rule.required(),
+                },
               ],
             }),
-
-            defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'url',
-              validation: (rule) => rule.required(),
-            }),
           ],
-        },
+        }),
+
+        defineField({
+          name: 'link',
+          title: 'Link',
+          type: 'url',
+          validation: (rule) => rule.required(),
+        }),
       ],
     }),
   ],
