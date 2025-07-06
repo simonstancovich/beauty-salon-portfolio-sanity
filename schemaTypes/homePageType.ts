@@ -1,4 +1,4 @@
-import {defineField, defineType, validation} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const homePageType = defineType({
   name: 'homePage',
@@ -23,7 +23,6 @@ export const homePageType = defineType({
       type: 'string',
       validation: (rule) => rule.required(),
     }),
-
     defineField({
       name: 'services',
       title: 'Services',
@@ -48,8 +47,8 @@ export const homePageType = defineType({
             defineField({
               name: 'icon',
               title: 'Icon (optional)',
-              type: 'image',
-              description: 'A small SVG or PNG for the overlay icon',
+              type: 'string',
+              description: 'The icon to display for this service pasted as <iconName/>',
             }),
             defineField({
               name: 'link',
