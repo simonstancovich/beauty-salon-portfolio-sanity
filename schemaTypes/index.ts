@@ -1,3 +1,3 @@
-import {homePageType} from './HomePageType'
+import {homePageType} from './homePageType'
 
 export const schemaTypes = [homePageType]
