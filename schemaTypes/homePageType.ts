@@ -45,7 +45,7 @@ export const homePageType = defineType({
               options: {hotspot: true},
             }),
             defineField({
-              name: 'icon',
+              name: 'iconName',
               title: 'Icon (optional)',
               type: 'string',
               description: 'The icon to display for this service pasted as <iconName/>',
